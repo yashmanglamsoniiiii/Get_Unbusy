@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stop paying humans to be copy-paste machines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--mute:#4A4A4A;--line:#E4E4E4;--gold:#FFD23F;--waste:#E5322D;--blue:#000000;--on-blue:#FFFFFF;--pink:#FF5C8A;--mint:#2EC4A0;--sky:#3BA7FF;--violet:#7B5CFF;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--mute:#4A4A4A;--line:#E4E4E4;--gold:#FFD23F;--waste:#E5322D;--blue:#000000;--on-blue:#FFFFFF;color-scheme:light}}
+:root[data-theme="dark"]{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#000000;--mute:#4A4A4A;--line:#E4E4E4;--gold:#FFD23F;--waste:#E5322D;--blue:#000000;--on-blue:#FFFFFF;color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 18px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);font-weight:800;margin-bottom:.6em}
+h3{font-size:1.25rem;font-weight:600;margin-bottom:.3em}
+p{margin:0 0 1em;max-width:62ch}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
+section{padding:72px 0}
+a{color:inherit}
+.btn{display:inline-block;background:var(--blue);color:var(--on-blue);font-weight:700;text-decoration:none;padding:16px 28px;border-radius:999px;font-size:1.05rem}
+.btn{box-shadow:4px 4px 0 var(--pink)}
+.btn:hover{opacity:.85}
+.roast div:nth-child(1){--gold:var(--pink);border-top:5px solid var(--pink);background:color-mix(in srgb,var(--pink) 10%,#fff)}
+.roast div:nth-child(2){--gold:var(--sky);border-top:5px solid var(--sky);background:color-mix(in srgb,var(--sky) 10%,#fff)}
+.roast div:nth-child(3){--gold:var(--mint);border-top:5px solid var(--mint);background:color-mix(in srgb,var(--mint) 10%,#fff)}
+.roast div:nth-child(4){--gold:var(--violet);border-top:5px solid var(--violet);background:color-mix(in srgb,var(--violet) 10%,#fff)}
+.cols .card:nth-child(1){border-top:5px solid var(--mint);background:color-mix(in srgb,var(--mint) 10%,#fff)}
+.cols .card:nth-child(2){border-top:5px solid var(--sky);background:color-mix(in srgb,var(--sky) 10%,#fff)}
+.steps div:nth-child(1)::before{background:var(--pink)}
+.steps div:nth-child(2)::before{background:var(--mint)}
+.steps div:nth-child(3)::before{background:var(--sky)}
+.btn:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.sub{color:var(--mute);font-size:1.15rem}
+.fs{stroke:var(--ink);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.fy{fill:var(--gold)}.fw{fill:var(--surface)}.fk{fill:var(--ink)}.fn{fill:none}
+.fm{fill:var(--mint)}.fv{fill:var(--violet)}.fp{fill:var(--pink)}.fb{fill:var(--violet);opacity:.14}
+.ic{width:38px;height:38px;display:block;margin-bottom:8px}
+.ic .fs{stroke-width:2.6}
+.hero-grid{display:grid;grid-template-columns:1fr 210px;gap:28px;align-items:center}
+.hero-grid svg{width:100%;height:auto}
+.hg{width:64px;height:90px;display:block;margin-bottom:20px}
+.cta>.wrap>svg{display:block;margin:0 auto 14px;width:130px;height:auto}
+@media (max-width:720px){.hero-grid{grid-template-columns:1fr}.hero-grid svg{width:150px}}
+/* hero */
+.hero{padding:56px 0 40px}
+.hero h1 span{background:linear-gradient(transparent 62%,var(--gold) 62%)}
+.calc{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:26px;margin-top:36px;box-shadow:8px 8px 0 var(--pink)}
+.calc h3{margin-bottom:1em}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;margin-bottom:18px}
+.row label{font-weight:500}
+.row output{font-weight:700;min-width:5ch;text-align:right}
+.row input{grid-column:1/-1;width:100%;accent-color:var(--blue)}
+.result{border-top:2px dashed var(--line);padding-top:18px}
+.result .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(2.2rem,8vw,3.6rem);color:var(--waste);line-height:1}
+.result p{margin:.6em 0 0;color:var(--mute)}
+/* roast */
+.roast{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:24px}
+.roast div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.roast b{display:block;margin-bottom:4px}
+.roast i{color:var(--mute);font-style:normal}
+/* philosophy */
+.phil{background:var(--ink);color:var(--bg)}
+.phil .sub{color:var(--line)}
+.phil blockquote{margin:0 0 24px;font:800 clamp(1.7rem,4.6vw,2.9rem)/1.12 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;max-width:22ch}
+:root .phil{--bg:#FFFFFF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .phil{background:#000000;color:#FFFFFF}}
+/* offers */
+.cols{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card ul{margin:0;padding-left:1.1em}
+.card li{margin-bottom:.5em}
+.steps{counter-reset:s;display:grid;gap:14px}
+.steps div{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps div::before{content:counter(s);background:var(--gold);color:#000000;font:800 1.2rem "Bricolage Grotesque",sans-serif;width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
+.steps p{margin:0}
+.promise{border:2px solid var(--ink);border-radius:20px;padding:30px;background:color-mix(in srgb,var(--violet) 9%,#fff);box-shadow:8px 8px 0 var(--violet)}
+.cta{text-align:center}
+.cta p{margin-left:auto;margin-right:auto}
+footer{padding:30px 0 50px;color:var(--mute);font-size:.9rem;text-align:center}
+@media (prefers-reduced-motion:no-preference){.hero h1{animation:rise .7s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bot" viewBox="0 0 200 220"><rect class="fs fw" x="52" y="30" width="96" height="74" rx="18"/><rect class="fk" x="62" y="50" width="76" height="30" rx="12"/><rect class="fm" x="76" y="60" width="20" height="10" rx="5"/><rect class="fm" x="104" y="60" width="20" height="10" rx="5"/><rect class="fs fy" x="42" y="58" width="12" height="28" rx="6"/><rect class="fs fy" x="146" y="58" width="12" height="28" rx="6"/><path class="fs fn" d="M48 86Q50 102 74 98"/><rect class="fs fw" x="88" y="104" width="24" height="12"/><path class="fs fv" d="M44 216V152Q44 120 78 116H122Q156 120 156 152V216Z"/><path class="fs fw" d="M86 116L100 142L114 116Z"/><path class="fs fp" d="M100 138L94 152L100 178L106 152Z"/><rect class="fs fw" x="116" y="160" width="44" height="32" rx="5"/><rect class="fy" x="122" y="166" width="32" height="20" rx="3"/><circle class="fs fw" cx="116" cy="190" r="8"/></symbol></svg>
+
+<header class="hero"><div class="wrap">
+<div class="hero-grid"><div>
+<h1>Your team is a very expensive <span>copy-paste machine.</span></h1>
+<p class="sub" style="margin-top:20px">Congrats on the funding, the clients, and the 14 browser tabs. Meanwhile someone you pay monthly is still moving leads from Gmail to a Google Sheet by hand. Let’s put a number on it.</p>
+</div>
+<svg viewBox="0 0 200 220" role="img" aria-label="A calm AI assistant handling the repetitive work"><circle class="fb" cx="100" cy="118" r="94"/><circle class="fp" cx="30" cy="40" r="9"/><rect class="fm" x="164" y="30" width="16" height="16" rx="3" transform="rotate(20 172 38)"/><circle class="fy" cx="176" cy="196" r="8"/><use href="#bot"/></svg>
+</div>
+
+<div class="calc" aria-labelledby="ct">
+<h3 id="ct">The “who’s paying for this?” calculator</h3>
+<div class="row"><label for="p">People doing repetitive work</label><output id="po">3</output><input id="p" type="range" min="1" max="20" value="3"></div>
+<div class="row"><label for="h">Hours each, per week, on copy-paste tasks</label><output id="ho">6</output><input id="h" type="range" min="1" max="25" value="6"></div>
+<div class="row"><label for="c">Cost per hour of that person (₹)</label><output id="co">250</output><input id="c" type="range" min="100" max="1500" step="50" value="250"></div>
+<div class="result">
+<div class="big" id="yr">₹0</div>
+<p id="msg"></p>
+</div>
+</div>
+<p class="sub" style="margin-top:14px;font-size:.95rem">Rough maths with your own numbers. Not a promise, just a mirror.</p>
+</div></header>
+
+<section><div class="wrap">
+<h2>A gentle roast, with love</h2>
+<p class="sub">If you nodded at even two of these, we should talk.</p>
+<div class="roast">
+<div><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><circle class="fs fw" cx="20" cy="20" r="14"/><path class="fs fn" d="M20 11V20L27 24"/></svg><b>“We’ll reply to the lead tomorrow.”</b><i>Tomorrow, your lead replied to your competitor. They’re now friends.</i></div>
+<div><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><rect class="fs fw" x="8" y="5" width="24" height="30" rx="4"/><path class="fs fn" d="M13 14H27M13 20H27M13 26H21"/></svg><b>Monthly report = 3 hours of screenshots</b><i>Your client doesn’t want a PDF. They want proof you exist. A robot can send that.</i></div>
+<div><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><rect class="fs fy" x="5" y="8" width="30" height="24" rx="3"/><path class="fs fn" d="M5 16H35M5 24H35M16 8V32"/></svg><b>“Sir, who has the latest sheet?”</b><i>Final_v2_REAL_final(3).xlsx is not a system. It’s a cry for help.</i></div>
+<div><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><circle class="fs fy" cx="20" cy="12" r="7"/><path class="fs fw" d="M7 35C7 22 33 22 33 35Z"/></svg><b>You are the process</b><i>If the business stops when you take a holiday, you didn’t build a business. You built a very stressful job.</i></div>
+</div>
+</div></section>
+
+<section class="phil"><div class="wrap">
+<svg class="hg" viewBox="0 0 80 110" aria-hidden="true"><path d="M24 14H56C54 30 44 38 40 44C36 38 26 30 24 14Z" class="fy"/><path d="M20 102C24 88 34 80 40 78C46 80 56 88 60 102Z" class="fy"/><path d="M40 55V80" fill="none" stroke="var(--gold)" stroke-width="3" stroke-linecap="round"/><path d="M10 8H70M10 102H70M16 8C16 40 36 48 40 55C36 62 16 70 16 102M64 8C64 40 44 48 40 55C44 62 64 70 64 102" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<blockquote>Money you can earn back. Hours you can’t.</blockquote>
+<p class="sub">The old Stoics had a point: life isn’t short, we just burn most of it on things that don’t matter. A repetitive task isn’t “small work.” It’s a tax on your attention, collected every single day, forever.</p>
+<p class="sub">Automation isn’t about replacing people. It’s about letting your sharpest people do the one thing software can’t: think, sell, and care.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>What I actually build</h2>
+<div class="cols">
+<div class="card"><h3>For digital agencies</h3><ul>
+<li>Lead in → CRM entry → instant WhatsApp or email reply, in seconds</li>
+<li>Client reports that assemble and send themselves</li>
+<li>One piece of content, repurposed for every channel</li>
+<li>Review and mention alerts, so nothing slips past you</li></ul></div>
+<div class="card"><h3>For startups</h3><ul>
+<li>AI lead qualification, so founders talk only to real buyers</li>
+<li>Onboarding sequences that don’t depend on someone remembering</li>
+<li>Support triage that sorts the urgent from the noise</li>
+<li>A founder dashboard that answers “how are we doing?” without a meeting</li></ul></div>
+</div>
+<p class="sub" style="margin-top:24px">You never need to learn a new tool. Everything runs quietly in the background and shows up where you already work: WhatsApp, email, Google Sheets, Slack.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<h2>How we work</h2>
+<div class="steps">
+<div><p><b>Paid audit.</b> A short call, then I map where your hours leak. You get a clear written list, yours to keep even if we never work together.</p></div>
+<div><p><b>One automation, built properly.</b> We start with the single workflow that hurts most. Fixed price, agreed upfront, no surprises.</p></div>
+<div><p><b>Handover and support.</b> A short video and a one-page guide. Then I monitor it, fix it, and improve it monthly, because APIs change and automations need a caretaker.</p></div>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<div class="promise">
+<h2 style="margin-bottom:.4em">My honest promise</h2>
+<p>If I can’t find at least a few hours a week to give back to you, I’ll say so in the audit and we’ll part as friends. I’d rather lose a sale than sell you a robot you don’t need.</p>
+<p style="margin:0">I don’t promise magic. I promise fewer tabs, faster replies, and a team that works on things worth their salary.</p>
+</div>
+</div></section>
+
+<section class="cta"><div class="wrap">
+<svg viewBox="0 0 200 220" aria-hidden="true"><circle class="fb" cx="100" cy="118" r="94"/><use href="#bot"/></svg>
+<h2>The cheapest day to start was yesterday. The second cheapest is today.</h2>
+<p class="sub">Tell me the one task your team hates most. I’ll tell you, in plain words, whether a machine should be doing it.</p>
+<a class="btn" href="https://wa.me/919425093640?text=Hi%2C%20I%20want%20to%20book%20an%20automation%20audit%20!">Book your automation audit on WhatsApp</a>
+</div></section>
+
+<footer><div class="wrap">Yashmanglam Soni · AI automation for agencies and startups · yms@gmail.com</div></footer>
+
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+var f=new Intl.NumberFormat('en-IN');
+function go(){
+var p=+$('p').value,h=+$('h').value,c=+$('c').value;
+$('po').textContent=p;$('ho').textContent=h;$('co').textContent=f.format(c);
+var y=p*h*c*52;
+$('yr').textContent='₹'+f.format(y)+' / year';
+$('msg').textContent='That’s '+f.format(p*h*52)+' hours a year spent on work a machine does without chai breaks. Even if automation saves only half, that’s ₹'+f.format(Math.round(y/2))+' back in your pocket.';
+}
+['p','h','c'].forEach(function(i){$(i).addEventListener('input',go)});
+go();
+})();
+</script>
+</body>
+</html>
