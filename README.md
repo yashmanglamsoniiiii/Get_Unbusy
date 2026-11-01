@@ -49,4 +49,4 @@ Repetitive tasks are an invisible tax on attention and growth. Automation isn't 
 * **Author:** Yashmanglam Soni
 * **Focus:** AI Automation for Agencies & Startups
 * **Email:** yms@gmail.com
-* **Direct Booking:** [Book your automation audit on WhatsApp](https://wa.me/919425093640?text=Hi%2C%20I%20want%20to%20book%20an%20automation%20audit%20!)
+
